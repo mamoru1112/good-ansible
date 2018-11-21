@@ -8,6 +8,7 @@
   service:
     name: postgresql
     enabled: yes
+  notify: restart postgresql
 
 - name: check existing /var/lib/pgsql/data
   stat:
@@ -17,5 +18,4 @@
 - name: initilize postgres
   command: postgresql-setup initdb
   when: not p.stat.exists
-  notify: restart postgresql
   

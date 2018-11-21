@@ -13,9 +13,9 @@
   service:
     name: haproxy
     enabled: yes
+  notify: restart HAProxy
 
 - name: configure haproxy.conf
   template:
     src: haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
-  notify: restart HAProxy
