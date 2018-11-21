@@ -7,7 +7,7 @@
 - name: enable tomcat at boot
   service:
     name: tomcat
-    state: started
+    enabled: yes
 
 - name: create ansible tomcat directory
   file:

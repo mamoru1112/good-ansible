@@ -1,2 +1,21 @@
 ---
-# tasks file for good-ansible
+- name: install postgreql
+  yum:
+    name: postgresql-server
+    state: latest
+
+- name: enable postgresql at boot
+  service:
+    name: postgresql
+    enabled: yes
+
+- name: check existing /var/lib/pgsql/data
+  stat:
+    path: /var/lib/pgsql/data
+  register: p
+
+- name: initilize postgres
+  command: postgresql-setup initdb
+  when: not p.stat.exists
+  notify: restart postgresql
+  
