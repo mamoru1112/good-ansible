@@ -1,2 +1,5 @@
 ---
-# handlers file for good-ansible
+- name: restart tomcat
+  service:
+    name: tomcat
+    state: restarted
