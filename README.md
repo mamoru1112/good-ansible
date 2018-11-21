@@ -1,0 +1,1 @@
+ansible-playbook -i myinventory.file good-ansible/site.yml --ask-vault-pass
