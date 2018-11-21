@@ -1,2 +1,5 @@
 ---
-# handlers file for good-ansible
+- name: restart HAProxy
+  service:
+    name: haproxy
+    state: restarted

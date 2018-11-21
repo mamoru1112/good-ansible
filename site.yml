@@ -1,17 +1,8 @@
 ---
-- hosts: all
-  become: true
-  gather_facts: false
-  roles:
-    - frontends
-    - apps
-    - appdbs
-
 - name: common cofiguration
   hosts: all
   gather_facts: false
   become: true
-
   tasks:
     - name: enable repos
       copy:
@@ -19,5 +10,20 @@
         dest: /etc/yum.repos.d/open_three-tier-app.repo
         mode: 644
 
+- hosts: frontends
+  become: true
+  gather_facts: false
+  roles:
+    - frontends
 
+- hosts: apps
+  become: true
+  gather_facts: false
+  roles:
+    - apps
 
+- hosts: appdbs
+  become: true
+  gather_facts: false
+  roles:
+    - appdbs
