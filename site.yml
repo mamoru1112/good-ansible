@@ -9,6 +9,7 @@
         src: open_three-tier-app.repo
         dest: /etc/yum.repos.d/open_three-tier-app.repo
         mode: 644
+        decrypt: yes
 
 - hosts: frontends
   become: true
