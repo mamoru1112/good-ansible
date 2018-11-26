@@ -1,1 +1,1 @@
-ansible-playbook -i myinventory.file good-ansible/site.yml -e "GUID=${GUID}" --ask-vault-pass
+ansible-playbook site.yml --ask-vault-pass

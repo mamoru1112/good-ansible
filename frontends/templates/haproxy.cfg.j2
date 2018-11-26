@@ -25,5 +25,6 @@ backend app-servers
     mode http
     balance roundrobin
     option forwardfor
-    server app1 app1.{{GUID}}.internal:8080 cookie app1 check
-    server app2 app2.{{GUID}}.internal:8080 cookie app2 check
+{% for n in range(1,2) %}
+    server app{{n}} app{{n}}.{{GUID}}.internal:8080 cookie app{{n}} check
+{% endfor %}
