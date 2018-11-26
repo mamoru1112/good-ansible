@@ -1,0 +1,6 @@
+---
+- hosts: appdbs
+  become: true
+  gather_facts: false
+  roles:
+    - appdbs
