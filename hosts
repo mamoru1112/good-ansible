@@ -1,30 +1,14 @@
-[all:vars]
-GUID=05c1
-
-[internal:vars]
-
-###########################################################################
-### Ansible Vars
-###########################################################################
-timeout=60
-ansible_become=yes
-ansible_ssh_user=ec2-user
-
-[internal:children]
+[3tierapp:children]
 frontends
 apps
 appdbs
 
 [frontends]
-## These are the frontends
-frontend1 ansible_host=frontend1."{{ GUID }}".internal
+frontend1.05c1.internal ansible_ssh_host=frontend1.05c1.example.opentlc.com
 
 [apps]
-## These are the apps
-app1 ansible_host=app1."{{ GUID }}".internal
-app2 ansible_host=app2."{{ GUID }}".internal
+app1.05c1.internal ansible_ssh_host=app1.05c1.example.opentlc.com
+app2.05c1.internal ansible_ssh_host=app2.05c1.example.opentlc.com
 
 [appdbs]
-## These are the appdbi(s)
-appdb1 ansible_host=appdb1."{{ GUID }}".internal
-
+appdb1.05c1.internal ansible_ssh_host=appdb1.05c1.example.opentlc.com
