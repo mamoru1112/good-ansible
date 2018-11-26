@@ -1,5 +1,5 @@
 ---
-- name: install postgreql
+- name: Install Postgresql
   yum:
     name: postgresql-server
     state: latest
@@ -15,7 +15,7 @@
     path: /var/lib/pgsql/data
   register: p
 
-- name: initilize postgres
+- name: when existing /var/lib/pgsql/data, then initialize postgresql
   command: postgresql-setup initdb
   when: not p.stat.exists
   

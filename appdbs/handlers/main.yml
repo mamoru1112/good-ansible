@@ -1,5 +1,5 @@
 ---
-- name: restart postgresql
+- name: restart postgresql service
   service:
     name: postgresql
     state: restarted

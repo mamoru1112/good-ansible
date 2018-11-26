@@ -1,5 +1,5 @@
 ---
-- name: install apache tomcat
+- name: Install Apache and Tomcat
   package:
     name: "{{ item }}"
     state: latest
@@ -7,7 +7,7 @@
     - tomcat
     - httpd
 
-- name: enable apache tomcat at boot
+- name: enable apache and tomcat at boot
   service:
     name: "{{ item }}"
     enabled: yes
@@ -16,7 +16,7 @@
     - httpd
   notify: restart apache tomcat
 
-- name: create ansible tomcat directory
+- name: create /usr/share/tomcat/webapps/ROOT and /usr/share/tomcat/webapps/ansible directories
   file:
     path: /usr/share/tomcat/webapps/{{ item }}
     state: directory
@@ -24,7 +24,7 @@
     - ROOT
     - ansible
 
-- name: copy static index.html to tomcat webapps/ansible/index.html
+- name: copy index.html to tomcat webapps/ansible and webapps/ROOT
   template:
     src: index.html.j2
     dest: /usr/share/tomcat/webapps/{{ item }}/index.html

@@ -1,5 +1,5 @@
 ---
-- name: restart apache tomcat
+- name: restart apache and tomcat services
   service:
     name: "{{ item }}"
     state: restarted
