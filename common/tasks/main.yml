@@ -1,0 +1,7 @@
+---
+- name: copy open_three-tier.app.repo to /etc/yum.repo.d for all nodes
+  copy:
+    src: open_three-tier-app.repo
+    dest: /etc/yum.repos.d/open_three-tier-app.repo
+    mode: 644
+    decrypt: yes
